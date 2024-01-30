@@ -23,10 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-&b^!c-ooc!a#pa&u%fb0r@b62u_++#c-1a1#w^(jm_e7w*+89c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-# ALLOWED_HOSTS = ['.vercel.app','now.sh','127.0.0.1','localhost']
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['*']
+
 
 # Application definition
 
@@ -74,23 +74,23 @@ WSGI_APPLICATION = 'django_chart.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': '3F*bBE-c5dCGd6bfdG21ae5-6BEADged',
-        'HOST': 'monorail.proxy.rlwy.net',
-        'PORT': '54732',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',
+#         'USER': 'postgres',
+#         'PASSWORD': '3F*bBE-c5dCGd6bfdG21ae5-6BEADged',
+#         'HOST': 'monorail.proxy.rlwy.net',
+#         'PORT': '54732',
+#     }
+# }
 
 
 # Password validation
@@ -130,11 +130,11 @@ USE_TZ = True
 STATIC_URL = 'static/'
 MEDIA_URL = 'media/'
 
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+# STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
-# STATICFILES_DIRS = [BASE_DIR/'static']
-# MEDIA_ROOT = BASE_DIR/'media'
+STATICFILES_DIRS = [BASE_DIR/'static']
+MEDIA_ROOT = BASE_DIR/'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

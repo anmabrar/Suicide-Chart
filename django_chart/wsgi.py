@@ -15,5 +15,4 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_chart.settings')
 
 application = get_wsgi_application()
 
-# for vercel hosting 
-app = application
+
