@@ -1,1 +1,1 @@
-# Suicide-Chart || Django || Chart.js
+# Suicide-Chart || Django|Chart.js
