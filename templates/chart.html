@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Chart {% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <div class="row py-4">
+            <div class="col-md-12">
+                <h3 class="text-center"><strong class="text-secondary">Suicide Chart of <span class="text-danger">{{ country.name }}</span></strong></h3>
+            </div>
+             <div class="col-md-12">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+    </div>
+    
+    <div>
+  <canvas id="myChart"></canvas>
+</div>
+
+{{ qs|json_script:"qs" }}
+    
+{% endblock content %}
+
+{% block scripts %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script>
+        const qs = JSON.parse(document.getElementById('qs').textContent);
+        let labels = [];
+        let data = []
+        
+        for(let d of qs){
+            labels.push(d[0].toString());
+            data.push(d[1]);
+        }
+        const ctx = document.getElementById('myChart');
+    
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: '# of cases',
+            data: data,
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    </script>
+{% endblock scripts %}

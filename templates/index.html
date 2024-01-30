@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %} Country List {% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <div class="row py-4">
+            <div class="col-md-12">
+                <h4 class="text-center">Country List</h4>
+            </div class="">
+             <div class="col-md-12">
+                <ul class="list-group-flush list-unstyled">
+                    {% for country in object_list %}
+                    <li class="list-group-item">
+                        <a href="{% url 'chart' country.name %}" class="text-decoration-none">
+                            {{ country.name }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
