@@ -2,7 +2,7 @@
     "builds": [
       {
         "src": "django_chart/wsgi.py",
-        "use": "@vercel/python"
+        "use": "@vercel/python3.9"
       }
     ],
     "routes": [
